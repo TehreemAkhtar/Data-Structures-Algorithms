@@ -3,6 +3,7 @@
 # Assuming uniqueness is case-insensitive
 # Time Complexity (TC): O(n)
 # Space Complexity (SC): O(n)
+# Uses sets
 def is_unique_1(string):
     unique_chars = set()
     string = string.lower()
@@ -18,6 +19,7 @@ def is_unique_1(string):
 # Assuming uniqueness is case-insensitive
 # Time Complexity (TC): O(n2)
 # Space Complexity (SC): O(n)
+# Uses strings
 def is_unique_2(string):
     unique_chars = ''
     string = string.lower()
