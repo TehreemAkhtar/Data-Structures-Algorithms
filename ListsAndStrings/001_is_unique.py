@@ -30,3 +30,17 @@ def is_unique_2(string):
         # Average TC O(n): strings are immutable. Creates a new copy everytime
         unique_chars += char
     return True
+
+
+# Assuming uniqueness is case-insensitive
+# Time Complexity (TC): O(n2)
+# Space Complexity (SC): O(1)
+# without additional data structure
+def is_unique_3(string):
+    string = string.lower()
+    length = len(string)
+    for i in range(length):
+        for j in range(i + 1, length):
+            if string[i] == string[j]:
+                return False
+    return True
