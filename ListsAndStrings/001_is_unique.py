@@ -70,3 +70,6 @@ def is_unique_4(string):
 def is_unique_5(string):
     string = string.replace(" ", "").lower()
     return len(string) == len(set(string))
+
+
+# TODO: Implement Bit vector implementation
