@@ -72,4 +72,4 @@ def is_unique_5(string):
     return len(string) == len(set(string))
 
 
-# TODO: Implement Bit vector implementation
+# TODO: Implement Bit vector solution
