@@ -1,3 +1,5 @@
+# SOURCE: Cracking the Coding Interview Book
+
 # Is Unique: Implement an algorithm to determine if a string has all unique characters.
 
 # Assuming uniqueness is case-insensitive
