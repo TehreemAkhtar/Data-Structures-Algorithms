@@ -6,6 +6,8 @@ from typing import List
 #  -- Assuming numbers are non-negative
 
 # Solution # 1
+# Time Complexity (TC): O(n log m)
+# Space Complexity (SC): O(1)
 # Approach: Extract digits of each num using repeated division -> check parity -> increment counter accordingly
 def has_even_digits(num: int) -> bool:
     digit_count = 0
