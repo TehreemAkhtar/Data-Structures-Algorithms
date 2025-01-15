@@ -1,5 +1,6 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/find-numbers-with-even-number-of-digits/editorial/?source=submission-ac
+from math import log10, floor
 from typing import List
 
 
@@ -55,12 +56,12 @@ def count_even_numbers(nums: List[int]) -> int:
 # The inner operation (digit counting) runs O(logM) for each number.
 # These two do not multiply to give N² because the inner loop isn't based on N, it's based on M.
 
-
+# -----------------------------------------------------------------------------------------------------
 # Solution # 2
 
 # Time Complexity (TC): O(n log m)
 # Space Complexity (SC): O(log m)
-# Approach: Extract digits of each num using repeated division -> check parity -> increment counter accordingly
+# Approach: Loop through each num -> convert to str -> calc len()
 
 def count_even_numbers(nums: List[int]) -> int:
     count = 0
@@ -117,3 +118,25 @@ def count_even_numbers(nums: List[int]) -> int:
 # At any given time, only one string (from str(num)) exists in memory.
 # Therefore, the total space complexity is: O(logM)
 
+
+# -----------------------------------------------------------------------------------------------------
+# Solution # 3
+
+# Time Complexity (TC): O(n log m)
+# Space Complexity (SC): O(1)
+# Approach: Use log10 to count num
+
+def count_even_numbers(nums: List[int]) -> int:
+    count = 0
+    for num in nums:
+        digit_count = int(floor(log10(num)) + 1)
+        if digit_count & 1 == 0:
+            count += 1
+    return count
+
+# Time Complexity Explanation
+# The time complexity of computing logarithm depends on the language and algorithm used.
+# In the worst case, it will be O(log(num)). Hence, the time complexity of computing logarithm will be O(logM).
+
+# The time complexity of the computing floor depends on the language and algorithm used.
+# However, it will be O(1) at most. Hence, the time complexity of the computing floor will be O(1).
