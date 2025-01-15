@@ -63,7 +63,7 @@ def count_even_numbers(nums: List[int]) -> int:
 # Space Complexity (SC): O(log m)
 # Approach: Loop through each num -> convert to str -> calc len()
 
-def count_even_numbers(nums: List[int]) -> int:
+def count_even_numbers_2(nums: List[int]) -> int:
     count = 0
     for num in nums:
         length = len(str(num))
@@ -126,7 +126,7 @@ def count_even_numbers(nums: List[int]) -> int:
 # Space Complexity (SC): O(1)
 # Approach: Use log10 to count num
 
-def count_even_numbers(nums: List[int]) -> int:
+def count_even_numbers_3(nums: List[int]) -> int:
     count = 0
     for num in nums:
         digit_count = int(floor(log10(num)) + 1)
@@ -140,3 +140,20 @@ def count_even_numbers(nums: List[int]) -> int:
 
 # The time complexity of the computing floor depends on the language and algorithm used.
 # However, it will be O(1) at most. Hence, the time complexity of the computing floor will be O(1).
+
+
+# -----------------------------------------------------------------------------------------------------
+# Solution # 4
+
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(1)
+# Approach: Use constraints to make comparisons
+
+def count_even_numbers_4(nums: List[int]) -> int:
+    return sum(
+        1
+        for num in nums
+        if (10 <= num <= 99)
+        or (1000 >= num <= 9999)
+        or (100000 <= num <= 999999)
+    )
