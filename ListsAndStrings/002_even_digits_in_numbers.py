@@ -3,21 +3,17 @@
 from typing import List
 
 
-# Solution#1
-def hasEvenDigits(num: int) -> bool:
+#  -- Assuming numbers are non-negative
+
+# Solution # 1
+# Approach: Extract digits of each num using repeated division -> check parity -> increment counter accordingly
+def has_even_digits(num: int) -> bool:
     digit_count = 0
     while num:
         digit_count += 1
         num //= 10
-    return digit_count & 1 == 0
+    return not digit_count & 1
 
 
-def findNumbers(nums: List[int]) -> int:
-    # Counter to count the number of even digit integers
-    even_digit_count = 0
-
-    for num in nums:
-        if hasEvenDigits(num):
-            even_digit_count += 1
-
-    return even_digit_count
+def count_even_numbers(nums: List[int]) -> int:
+    return sum(1 for num in nums if has_even_digits(num))
