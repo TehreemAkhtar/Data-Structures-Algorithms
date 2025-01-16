@@ -1,5 +1,5 @@
 # SOURCE: Leetcode
-# https://leetcode.com/problems/find-numbers-with-even-number-of-digits/editorial/?source=submission-ac
+# https://leetcode.com/problems/find-numbers-with-even-number-of-digits
 from math import log10, floor
 from typing import List
 
