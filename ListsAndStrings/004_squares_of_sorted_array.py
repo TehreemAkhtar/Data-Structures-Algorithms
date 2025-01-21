@@ -15,3 +15,12 @@ def squares_of_sorted_array_1(nums):
     # Uses Timsort, a hybrid sorting algorithm derived from merge sort and insertion sort.
     nums.sort()
     return nums
+
+
+# Solution # 2
+
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(1) because of sorting algo: Tim Sort
+# Approach: Use two pointer technique
+def squares_of_sorted_array_2(nums):
+    pass
