@@ -41,9 +41,48 @@ def squares_of_sorted_array_3(nums):
         sq_l = nums[l] * nums[l]
         sq_r = nums[r] * nums[r]
         if sq_l > sq_r:
-            res.append(nums[l])
+            res.append(sq_l)
             l += 1
         else:
-            res.append(nums[r])
+            res.append(sq_r)
+            r -= 1
+    return res[::-1]
+
+
+# Optimised version of solution # 3
+# Optimisation: Instead of comparing the squares, we can check the absolute vals
+# TC: O(n)
+# SC: O(n)
+def squares_of_sorted_array_optimised_3(nums):
+    res = []
+    l, r = 0, len(nums) - 1
+    while l <= r:
+        if abs(nums[l]) > abs(nums[r]):
+            res.append(nums[l] * nums[l])
+            l += 1
+        else:
+            res.append(nums[r] * nums[r])
+            r -= 1
+    return res[::-1]
+
+
+# Solution # 4
+
+# Time Complexity (TC): O(n) because of Two Pointers Solution
+# Space Complexity (SC): O(n) because of resultant arr
+# Approach: Use two pointer technique because array is already sorted in non-decreasing order
+# -> initialise one left and right most ptr -> compare both square val -> put the max one in resultant arr
+# keep incrementing/decrementing ptrs -> keep appending left to the arr i.e. append in the start
+def squares_of_sorted_array_4(nums):
+    res = []
+    l, r = 0, len(nums) - 1
+    while l <= r:
+        sq_l = nums[l] * nums[l]
+        sq_r = nums[r] * nums[r]
+        if sq_l > sq_r:
+            res.append(sq_l)
+            l += 1
+        else:
+            res.append(sq_r)
             r -= 1
     return res[::-1]
