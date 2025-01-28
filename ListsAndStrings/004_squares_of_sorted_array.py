@@ -75,16 +75,17 @@ def squares_of_sorted_array_optimised_3(nums):
 # -> start comparing both and update resultant arr accordingly
 def squares_of_sorted_array_4(nums):
     res = []
+    length = len(nums)
     # Find the index of the smallest absolute value (closest to 0)
     min_idx = min(range(len(nums)), key=lambda i: abs(nums[i]))
     l, r = min_idx - 1, min_idx  # Initialize two pointers around the minimum
 
     # Merge-like process for center-out traversal
-    while l >= 0 or r < len(nums):
-        if l >= 0 and (r >= len(nums) or abs(nums[l]) <= abs(nums[r])):
+    while l >= 0 or r < length:
+        if l >= 0 and (r >= length or abs(nums[l]) <= abs(nums[r])):
             res.append(nums[l] * nums[l])
             l -= 1
-        elif r < len(nums):
+        elif r < length:
             res.append(nums[r] * nums[r])
             r += 1
     return res
