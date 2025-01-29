@@ -89,3 +89,4 @@ def squares_of_sorted_array_4(nums):
             res.append(nums[r] * nums[r])
             r += 1
     return res
+
