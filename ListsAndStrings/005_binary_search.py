@@ -26,7 +26,7 @@ def search_1(nums, target):
 # Time Complexity (TC): O(log n): binary search
 # Space Complexity (SC): O(1)
 # Approach: Use Binary Search
-def search_1(nums, target):
+def search_2(nums, target):
     l, r = 0, len(nums) - 1
     while l <= r:
         # This problem won't occur in python because ints in python are unbounded can be infinitely large
