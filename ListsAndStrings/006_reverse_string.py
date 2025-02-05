@@ -13,3 +13,37 @@ def reverse_string_1(s):
     for i in range(len(s) // 2):
         s[i], s[j - i] = s[j - i], s[i]
     return s
+
+
+# Solution # 2
+
+# Time Complexity (TC): O(n): traverse the whole array
+# Space Complexity (SC): O(n): using a stack which increases with input size
+# Approach: Use a stack -> append each char into the stack -> stack contains reversed sequence
+# -> go through each element into the stack -> pop it -> re-assign it with each element in array
+def reverse_string_2(s):
+    stack = []
+    for char in s:
+        stack.append(char)
+
+    for i in range(len(s)):
+        s[i] = stack.pop()
+
+    return s
+
+
+# Solution # 3
+
+# Time Complexity (TC): O(n): traverse the whole array
+# Space Complexity (SC): O(n): using a stack which increases with input size
+# Approach: Use a stack -> append each char into the stack -> stack contains reversed sequence
+# -> go through each element into the stack -> pop it -> re-assign it with each element in array
+def reverse_string_3(s):
+    stack = []
+    for char in s:
+        stack.append(char)
+
+    for i in range(len(s)):
+        s[i] = stack.pop()
+
+    return s
