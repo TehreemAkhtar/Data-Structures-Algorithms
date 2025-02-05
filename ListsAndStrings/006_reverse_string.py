@@ -34,10 +34,11 @@ def reverse_string_2(s):
 
 # Solution # 3
 
-# Time Complexity (TC): O(n): traverse the whole array
-# Space Complexity (SC): O(n): using a stack which increases with input size
-# Approach: Use a stack -> append each char into the stack -> stack contains reversed sequence
-# -> go through each element into the stack -> pop it -> re-assign it with each element in array
+# Time Complexity (TC): O(n): Total no. of swaps scales linearly with n
+# Space Complexity (SC): O(n): We're using space from the recursive call stack -> each
+# recursive call adds a frame to the call stack and Python does not optimise tail recursion
+# Approach: Recursively swaps the pair of elements starting from outermost indices
+# -> for a list of n, it requires n/2 swaps -> this scales linearly with n
 def reverse_string_3(s):
     def reverse(l, r):
         if l < r:
