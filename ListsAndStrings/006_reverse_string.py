@@ -39,11 +39,10 @@ def reverse_string_2(s):
 # Approach: Use a stack -> append each char into the stack -> stack contains reversed sequence
 # -> go through each element into the stack -> pop it -> re-assign it with each element in array
 def reverse_string_3(s):
-    stack = []
-    for char in s:
-        stack.append(char)
+    def reverse(l, r):
+        if l < r:
+            s[l], s[r] = s[r], s[l]
+            reverse(l + 1, r - 1)
+        return
 
-    for i in range(len(s)):
-        s[i] = stack.pop()
-
-    return s
+    reverse(0, len(s) - 1)
