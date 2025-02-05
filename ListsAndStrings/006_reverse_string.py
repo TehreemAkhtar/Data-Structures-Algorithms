@@ -35,7 +35,7 @@ def reverse_string_2(s):
 # Solution # 3
 
 # Time Complexity (TC): O(n): Total no. of swaps scales linearly with n
-# Space Complexity (SC): O(n): We're using space from the recursive call stack -> each
+# Space Complexity (SC): O(n): We're using space from the recursive call stack
 # recursive call adds a frame to the call stack and Python does not optimise tail recursion
 # Approach: Recursively swaps the pair of elements starting from outermost indices
 # -> for a list of n, it requires n/2 swaps -> this scales linearly with n
