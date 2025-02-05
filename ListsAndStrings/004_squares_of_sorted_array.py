@@ -90,3 +90,52 @@ def squares_of_sorted_array_4(nums):
             r += 1
     return res
 
+
+# Solution # 5
+
+# Time Complexity (TC): O(n)  => Two Pointers Sol : center-out strategy
+# Space Complexity (SC): O(n) because of resultant arr
+# Approach: Use two pointer technique because array is already sorted in non-decreasing order
+# -> find the abs min value idx using binary search TC (log n) -> initialise left ptr = centre - 1,
+# right ptr = centre
+# -> start comparing both and update resultant arr accordingly
+def squares_of_sorted_array_5(nums):
+    res = []
+    length = len(nums)
+    # Find the index of the smallest absolute value (closest to 0)
+    min_idx = find_min_idx(nums)
+    l, r = min_idx - 1, min_idx  # Initialize two pointers around the minimum
+
+    # Merge-like process for center-out traversal
+    while l >= 0 or r < length:
+        if l >= 0 and (r >= length or abs(nums[l]) <= abs(nums[r])):
+            res.append(nums[l] * nums[l])
+            l -= 1
+        elif r < length:
+            res.append(nums[r] * nums[r])
+            r += 1
+    return res
+
+# Uses binary search to find the smallest abs value index
+def find_min_idx(nums):
+    # Find the first index where nums[i] >= 0
+    l, r = 0, len(nums)
+    while l < r:
+        m = (l + r) // 2
+        if nums[m] == 0:
+            return m
+        if nums[m] < 0:
+            l = m + 1
+        else:
+            r = m
+    pos = l
+    # Determine the index of the smallest absolute value
+    if pos == 0:
+        return 0
+    elif pos == len(nums):
+        return len(nums) - 1
+    else:
+        if abs(nums[pos - 1]) <= abs(nums[pos]):
+            return pos - 1
+        else:
+            return pos
