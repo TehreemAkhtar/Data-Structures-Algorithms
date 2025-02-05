@@ -8,7 +8,7 @@
 # Time Complexity (TC): O(n): two pointer solution
 # Space Complexity (SC): O(1): in-place swapping
 # Approach: Use two pointers i and j -> swap their positions
-def reverse_string(s):
+def reverse_string_1(s):
     j = len(s) - 1
     for i in range(len(s) // 2):
         s[i], s[j - i] = s[j - i], s[i]
