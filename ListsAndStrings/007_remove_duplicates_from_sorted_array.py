@@ -9,10 +9,9 @@
 # Space Complexity (SC): O(1): in-place swapping
 # Approach:
 def remove_duplicates(nums):
-    l, r = 0, 0
-    while r < len(nums) - 1:
-        if nums[r] != nums[r + 1]:
-            nums[l + 1] = nums[r + 1]
+    l = 1
+    for r in range(1, len(nums)):
+        if nums[r] != nums[r - 1]:
+            nums[l] = nums[r]
             l += 1
-        r += 1
-    return l + 1
+    return l
