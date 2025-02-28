@@ -18,3 +18,15 @@ def two_sum_1(nums, target):
         if element in unique_elements.keys():
             return [i, unique_elements[element]]
         unique_elements[nums[i]] = i
+
+
+def two_sum_1_refactored_version(nums, target):
+    prev_map = dict()
+    for i, n in enumerate(nums):
+        diff = target - n
+        # dict.keys() return a dynamic view object, not a list. Checking 'element in unique_elements.keys()'
+        # does not iterate through all keys - it directly checks the hashtable.
+        # Membership checks are optimized via hashing.
+        if diff in prev_map:
+            return [i, prev_map[diff]]
+        prev_map[n] = i
