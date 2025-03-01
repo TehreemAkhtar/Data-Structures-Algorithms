@@ -8,7 +8,8 @@
 # Time Complexity (TC): O(n log n): traversing the entire list and calling binary search (log n)
 # in each iteration to find the diff
 # Space Complexity (SC): O(1): we're not storing anything anywhere
-# Approach:
+# Approach: Traverse the entire list. In each iteration i, apply binary search on the sub-array (i+1 -> len(arr)-1)
+# and check if the diff exists.
 def two_sum_1(numbers, target):
     length = len(numbers)
     for i, n in enumerate(numbers):
@@ -30,10 +31,13 @@ def binary_search(l, r, nums, target):
     return -1
 
 
-# Time Complexity (TC): O(n): traversing the entire list and calling binary search (log n)
-# in each iteration to find the diff
+# Time Complexity (TC): O(n): traversing the entire list using 2 ptrs and check the sum of nums in each iteration
 # Space Complexity (SC): O(1): we're not storing anything anywhere
-# Approach:
+# Approach: Use two pointers l and r, in each iteration check the following
+# if sum(l+r) == target
+# if sum(l+r) > target: which means if we move l pointer inwards,
+# the sum would increase because the list is sorted. Instead, we will move r pointers inwards.
+# if sum(l+r) < target, move the l ptr, so the sum can increase
 def two_sum_2(numbers, target):
     l, r = 0, len(numbers) - 1
     while l < r:
