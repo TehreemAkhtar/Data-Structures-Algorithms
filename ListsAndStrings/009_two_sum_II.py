@@ -2,6 +2,13 @@
 # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 # Solution: https://www.youtube.com/watch?v=cQ1Oz4ckceM (Neetcode)
 
+
+# Solution # 1
+
+# Time Complexity (TC): O(n log n): traversing the entire list and calling binary search (log n)
+# in each iteration to find the diff
+# Space Complexity (SC): O(1): we're not storing anything anywhere
+# Approach:
 def two_sum(numbers, target):
     length = len(numbers)
     for i, n in enumerate(numbers):
