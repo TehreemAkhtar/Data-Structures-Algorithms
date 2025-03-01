@@ -7,7 +7,7 @@
 
 # Time Complexity (TC): O(n): two pointer solution
 # Space Complexity (SC): O(1): in-place swapping
-# Approach:
+# Approach: Use two pointers to keep track of duplicates
 def remove_duplicates(nums):
     l = 1
     for r in range(1, len(nums)):

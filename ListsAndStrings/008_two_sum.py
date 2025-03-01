@@ -7,7 +7,9 @@
 
 # Time Complexity (TC): O(n): hashmap (dict) to track elements + indices
 # Space Complexity (SC): O(n): using a hashmap which can store n-1 elements in worst case
-# Approach:
+# Approach: Use a hashmap to store traversed elements. In each iteration,
+# check if the difference (target - current element) already exists in hashmap. If yes, return the index,
+# else keep iterating.
 def two_sum_1(nums, target):
     unique_elements = dict()
     for i in range(len(nums)):

@@ -9,7 +9,7 @@
 # in each iteration to find the diff
 # Space Complexity (SC): O(1): we're not storing anything anywhere
 # Approach:
-def two_sum(numbers, target):
+def two_sum_1(numbers, target):
     length = len(numbers)
     for i, n in enumerate(numbers):
         diff = target - n
@@ -28,3 +28,19 @@ def binary_search(l, r, nums, target):
         else:
             l = m + 1
     return -1
+
+
+# Time Complexity (TC): O(n): traversing the entire list and calling binary search (log n)
+# in each iteration to find the diff
+# Space Complexity (SC): O(1): we're not storing anything anywhere
+# Approach:
+def two_sum_2(numbers, target):
+    l, r = 0, len(numbers) - 1
+    while l < r:
+        _sum = numbers[l] + numbers[r]
+        if _sum == target:
+            return [l + 1, r + 1]
+        if _sum > target:
+            r -= 1
+        else:
+            l += 1
