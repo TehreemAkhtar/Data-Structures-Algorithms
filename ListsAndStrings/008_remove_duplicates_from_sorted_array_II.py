@@ -23,3 +23,7 @@ def remove_duplicates_1(nums):
             l += 1
         r += 1
     return l
+
+
+def remove_duplicates_2(nums):
+    pass
