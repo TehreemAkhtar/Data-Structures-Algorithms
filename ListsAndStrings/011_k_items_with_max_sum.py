@@ -2,7 +2,7 @@
 # https://leetcode.com/problems/k-items-with-the-maximum-sum/
 
 
-# Time Complexity (TC): O(1): simple math operations
+# Time Complexity (TC): O(1): simple arithmetic checks
 # Space Complexity (SC): O(1): no extra memory used
 def k_items_with_maximum_sum(numOnes, numZeros, numNegOnes, k):
     """
