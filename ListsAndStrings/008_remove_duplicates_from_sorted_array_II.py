@@ -25,5 +25,23 @@ def remove_duplicates_1(nums):
     return l
 
 
+# Solution # 2
+
+# Time Complexity (TC): O(n): two pointer solution
+# Space Complexity (SC): O(1): in-place swapping
+# Approach: l ptr will keep track of the next valid element to be placed. It checks if an element is not the
+# 3rd occurrence, it adds it to the valid part of the array
 def remove_duplicates_2(nums):
-    pass
+    left = 2
+
+    if len(nums) <= 2: return len(nums)
+
+    for right in range(2, len(nums)):
+        # If different: The current element is not a third duplicate. Place it at left, then increment left.
+        # If same: skip to avoid 3rd occurrence and keep the ptr at the same position
+        # until it can be replaced with a valid element.
+        if nums[right] != nums[left - 2]:
+            nums[left] = nums[right]
+            left += 1
+
+    return left
