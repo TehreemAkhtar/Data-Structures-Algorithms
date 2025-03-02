@@ -30,7 +30,7 @@ def remove_duplicates_1(nums):
 # Time Complexity (TC): O(n): two pointer solution
 # Space Complexity (SC): O(1): in-place swapping
 # Approach: l ptr will keep track of the next valid element to be placed. It checks if an element is not the
-# 3rd occurrence, it adds it to the valid part of the array
+# 3rd occurrence, it adds it to the valid part of the array which always maintains at most 2 duplicates
 def remove_duplicates_2(nums):
     left = 2
 
