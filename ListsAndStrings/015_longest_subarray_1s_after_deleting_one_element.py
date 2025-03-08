@@ -19,11 +19,11 @@ def longest_subarray_1(nums):
     return max_sum - 1 if max_sum == len(nums) else max_sum
 
 
-# Time Complexity (TC): O(n): Use kadane algo with slight modification
+# Time Complexity (TC): O(n): Use sliding window approach while only traversing the array once
 # Space Complexity (SC): O(1): constant memory is used
-# Approach: Maintain two sums prev and curr. Prev_sum will sum of prev sub array of 1 i.e.
-# before encountering a zero and curr_sum will hold current count of ones i.e. once a 0 is
-# encountered. At each step we will keep checking is prev+curr sum is greater than max_sum.
+# Approach: Maintain a valid window of elements with at most 1 zero. If the window contains > 1 zeros, then
+# move the start ptr to the left until the window becomes valid again and has at most 1 zero. Keep checking the
+# length of the valid window in each iteration
 def longest_subarray_2(nums):
     zero_count = longest_window = start = 0
 
