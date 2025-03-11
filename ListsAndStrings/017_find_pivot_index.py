@@ -24,3 +24,40 @@ def pivot_index_1(nums):
         if left_sum == right_sum:
             return i
     return -1
+
+
+# Solution # 2
+# Time Complexity (TC): O(n): use prefix sum approach
+# Space Complexity (SC): O(1): no extra memory used except from a few variables
+# Approach: Compute the total sum first. In each iteration, compute right and left sum and compare both.
+# This way we don't need an extra list to maintain prefix sum as we can compute left sum in each iteration
+def pivot_index_2(nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    total_sum = sum(nums)
+    left_sum = 0
+    for i in range(len(nums)):
+        left_sum += nums[i - 1] if i > 0 else 0
+        right_sum = total_sum - left_sum - nums[i]
+        if left_sum == right_sum:
+            return i
+    return -1
+
+
+# Optimisation: Instead of having a conditional statement for left_sum in each iteration,
+# simply compute right sum both and then do the comparison. Later on, update left_sum if needed
+def pivot_index_2_optimised(nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    total_sum = sum(nums)
+    left_sum = 0
+    for i in range(len(nums)):
+        right_sum = total_sum - left_sum - nums[i]
+        if left_sum == right_sum:
+            return i
+        left_sum += nums[i]
+    return -1
