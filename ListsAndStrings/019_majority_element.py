@@ -17,6 +17,24 @@ def majority_element_1(nums):
     count = {}
     for n in nums:
         count[n] = count.get(n, 0) + 1
-    for k, v in count.items():
-        if v > maj_element:
-            return k
+        if count[n] > maj_element:
+            return n
+
+
+def majority_element_2(nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    count = 1
+    res = nums[0]
+
+    for i in range(1, len(nums)):
+        if count == 0:
+            res = nums[i]
+        if res == nums[i]:
+            count += 1
+        else:
+            count -= 1
+
+    return res
