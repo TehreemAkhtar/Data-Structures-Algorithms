@@ -3,7 +3,11 @@
 # Solution: https://www.youtube.com/watch?v=fFVZt-6sgyo (Neetcode)
 
 
-# Brute force
+# Solution # 1
+# Time Complexity (TC): O(n2): uses brute-force approach
+# Space Complexity (SC): O(1): using a constant amount of extra space
+# Approach: Uses a brute force approach where we check all possible subarray sums
+# and update pairs count
 def subarray_sum_1(nums, k):
     """
     :type nums: List[int]
@@ -20,6 +24,11 @@ def subarray_sum_1(nums, k):
     return pairs
 
 
+# Solution # 2
+# Time Complexity (TC): O(n): use prefix sum approach
+# Space Complexity (SC): O(1): no extra memory used except from a few variables
+# Approach: Compute the total sum first. In each iteration, compute right and left sum and compare both.
+# This way we don't need an extra list to maintain prefix sum as we can compute left sum in each iteration
 def subarray_sum_2(nums, k):
     """
     :type nums: List[int]
