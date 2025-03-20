@@ -20,6 +20,15 @@ def majority_element_1(nums):
             return n
 
 
+# Solution # 2
+# Time Complexity (TC): O(n): calculates majority element in one pass
+# Space Complexity (SC): O(1): Uses a single variable
+# Approach: Uses Boyer Moore Majority Vote algorithm
+# Link: https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/
+# Picks first element as a candidate. If the next element is equal to the candidate, we increment the counter.
+# If not, its decremented. Once the counter reaches 0, we update candidate i.e. the element with the curr element.
+# The only condition for this to work in one pass is: There should always exist a majority element.
+# Otherwise, traverse the array one more time to make sure if selected candidate is the majority element.
 def majority_element_2(nums):
     """
     :type nums: List[int]
@@ -37,3 +46,9 @@ def majority_element_2(nums):
             count -= 1
 
     return res
+
+
+# This is the second pass to confirm the majority element. In either case, the algorithm takes linear time
+def second_pass_to_confirm_majority_element(nums, candidate):
+    count = sum(nums[i] == candidate for i in range(len(nums)))
+    return candidate if (count > len(nums) // 2) else -1
