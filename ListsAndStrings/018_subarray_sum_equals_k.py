@@ -25,10 +25,11 @@ def subarray_sum_1(nums, k):
 
 
 # Solution # 2
-# Time Complexity (TC): O(n): use prefix sum approach
-# Space Complexity (SC): O(1): no extra memory used except from a few variables
-# Approach: Compute the total sum first. In each iteration, compute right and left sum and compare both.
-# This way we don't need an extra list to maintain prefix sum as we can compute left sum in each iteration
+# Time Complexity (TC): O(n): Traverses the array once by maintaining a prefix sum count in a hashmap
+# Space Complexity (SC): O(n): Uses a hashmap to keep count of all subarray sums
+# Approach: During each iteration, check the diff of curr_element - k, check if it is present in hashmap.
+# This means we need (curr_element - k) subarray sum from hashmap to hold our condition true. We will also
+# keep incrementing curr_sum count in the hashmap.
 def subarray_sum_2(nums, k):
     """
     :type nums: List[int]
