@@ -4,10 +4,9 @@
 
 
 # Solution # 1
-# Time Complexity (TC): O(n2): uses brute-force approach
-# Space Complexity (SC): O(1): using a constant amount of extra space
-# Approach: Uses a brute force approach where we check all possible subarray sums
-# and update pairs count
+# Time Complexity (TC): O(n): Traverses the list in linear time and count frequency
+# Space Complexity (SC): O(n): uses a hashmap to count frequency of each element
+# Approach: In each iteration, update frequency in a hashmap and return as soon as the majority element is found
 def majority_element_1(nums):
     """
     :type nums: List[int]
