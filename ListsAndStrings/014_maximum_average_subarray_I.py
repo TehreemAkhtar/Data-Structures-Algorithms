@@ -1,5 +1,5 @@
 # SOURCE: Leetcode
-# https://leetcode.com/problems/maximum-average-subarray-i/description/
+# https://leetcode.com/problems/maximum-average-subarray-i/
 
 
 # Time Complexity (TC): O(n): Use sliding window approach and traverse the entire array
