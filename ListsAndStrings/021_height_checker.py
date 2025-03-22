@@ -22,6 +22,8 @@ def height_checker_1(heights):
 # Iterate the heights array and start with number 1 (smallest element that can occur in array), compare with
 # height and update mismatch. Also update the frequency of the numbers that have been checked, so we can update
 # the current_element.
+# One another alternative is to create an array from frequency array and then compare elements; although
+# this isn't optimal as we're creating 2 arrays
 def height_checker_2(heights):
     frequency = [0] * 101
     for h in heights:
