@@ -16,6 +16,7 @@ def height_checker_1(heights):
 
 
 # Solution # 2
+# Uses counting sort: https://www.youtube.com/watch?v=mowMVn9wTnE
 # Time Complexity (TC): O(n+k): uses count sort as the array elements are restricted to 100 (represented as k)
 # Space Complexity (SC): O(n): uses an extra array to keep the frequency count
 # Approach: create an array of size equal to the max number in constraint and count frequency of each number.
