@@ -1,5 +1,6 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/height-checker/
+# Solution: https://leetcode.com/problems/height-checker/editorial/
 
 
 # Solution # 1
