@@ -11,6 +11,9 @@
 # left ptr sorts 0's in the array
 # right ptr sort 2's in the array
 # We skip 1's because they'll stay in middle
+# The DNF algorithm is a simplified, specialized version of three-way partitioning (used in Quick Sort).
+# Both use pointers to group elements efficiently in linear time, but DNF is tailored for three fixed distinct values,
+# while Quick Sort is a full sorting algorithm.
 def sort_colors(nums):
     """
     :type nums: List[int]
