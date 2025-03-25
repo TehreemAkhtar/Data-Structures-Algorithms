@@ -1,7 +1,6 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/sort-colors/
 # Solution: https://www.youtube.com/watch?v=4xbWSRZHqac (Neetcode)
-from heapq import heappop
 
 
 # Solution # 1
@@ -33,7 +32,6 @@ def sort_colors(nums):
             r -= 1
         else:
             i += 1
-            heappop()
 
 # Approach 2 can be implemented using counting sort but that would require two passes
 # and the solution requires one pass only
