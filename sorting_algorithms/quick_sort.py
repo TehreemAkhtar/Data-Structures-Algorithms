@@ -21,7 +21,7 @@ import random
 # In fact sort functions of most lang libraries are implementations of quick sort only
 
 # Time Complexity
-# ø(nlogn) - Best + Average case
+# O(nlogn) - Best + Average case
 # O(n2) - Worst case: Can be almost avoided by using randomised version of quick sort
 
 # Randomised Quick Sort: Gives us O(nlogn) running time with very high probability
