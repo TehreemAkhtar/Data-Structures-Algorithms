@@ -1,5 +1,9 @@
 import random
 
+# References
+# 1. https://www.youtube.com/watch?v=COk73cpQbFQ (Actual algo)
+# 2. https://www.youtube.com/watch?v=3Bbm3Prd5Fo (Analysis)
+
 # Recursive algorithm:
 #     A function calling itself.
 #     A natural choice for design & conquer strategy
