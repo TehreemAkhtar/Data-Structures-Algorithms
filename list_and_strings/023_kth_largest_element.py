@@ -4,7 +4,12 @@
 
 
 # Solution # 1
-
+# Time Complexity (TC): Avg case: O(n), Worst case: O(n2): uses quick select
+# Space Complexity (SC): Avg case: O(log n), Worst case: O(n): Depends on depth of recursion stack ->
+# which depends on the quality of pivot selection
+# Approach: Uses Quick Select - which is a slight modification of quick sort.
+# The only difference is that in quick select, the quick sort algorithm is run on 1 part only
+# depending on k.
 class Solution(object):
     def find_kth_largest(self, nums, k):
         """
