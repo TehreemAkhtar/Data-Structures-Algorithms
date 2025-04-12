@@ -90,7 +90,7 @@ class Solution2(object):
 # Approach: Uses a min heap to store k largest elements. Traverse the array and
 # keep pushing elements until the heap reaches k+1 size. Once it reaches k+1, remove the root node,
 # which will always be the smallest of all and our heap will contain k largest elements.
-def find_kth_largest(nums, k):
+def find_kth_largest_3(nums, k):
     """
     :type nums: List[int]
     :type k: int
@@ -106,7 +106,7 @@ def find_kth_largest(nums, k):
 
 
 # Optimisation: Instead of always popping elements from the heap, we'll only pop/push when required
-def find_kth_largest_optimised(nums, k):
+def find_kth_largest_3_optimised(nums, k):
     """
     :type nums: List[int]
     :type k: int
@@ -116,6 +116,25 @@ def find_kth_largest_optimised(nums, k):
     heapq.heapify(min_heap)
 
     for num in nums[k:]:
-       if min_heap[0] < num:
-           heapq.heappushpop(min_heap, num)
+        if min_heap[0] < num:
+            heapq.heappushpop(min_heap, num)
     return min_heap[0]
+
+
+# Solution # 4
+# Time Complexity (TC): O(n + k log n)
+# Space Complexity (SC): O(n): max heap size
+# Approach: Negate the values to use Python’s heapq which is a min-heap by default ->
+# Extract elements until you reach the kth element -> Negate the number again while returning it.
+def find_kth_largest_4(nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: int
+    """
+    max_heap = [-num for num in nums]
+    heapq.heapify(max_heap)   #O(n) - building the heap
+
+    for _ in range(k - 1):
+        heapq.heappop(max_heap)  #klogn - extracting the k largest elements.
+    return -max_heap[0]
