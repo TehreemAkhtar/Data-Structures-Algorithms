@@ -1,6 +1,7 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/kth-largest-element-in-an-array/
 # Solution: https://www.youtube.com/watch?v=XEmy13g1Qxc (Neetcode)
+import heapq
 
 
 # Solution # 1
@@ -80,3 +81,41 @@ class Solution2(object):
             else:
                 i += 1
         return lt, gt
+
+
+# Solution # 3
+# Time Complexity (TC): O(n logk): Traversing the array of size n.
+# Each heappush() or heappop() on a heap of size k takes O(log k) time.
+# Space Complexity (SC): O(k): Heap stores k elements only
+# Approach: Uses a min heap to store k largest elements. Traverse the array and
+# keep pushing elements until the heap reaches k+1 size. Once it reaches k+1, remove the root node,
+# which will always be the smallest of all and our heap will contain k largest elements.
+def find_kth_largest(nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: int
+    """
+    min_heap = []
+
+    for num in nums:
+        heapq.heappush(min_heap, num)
+        if len(min_heap) > k:
+            heapq.heappop(min_heap)
+    return min_heap[0]
+
+
+# Optimisation: Instead of always popping elements from the heap, we'll only pop/push when required
+def find_kth_largest_optimised(nums, k):
+    """
+    :type nums: List[int]
+    :type k: int
+    :rtype: int
+    """
+    min_heap = nums[:k]
+    heapq.heapify(min_heap)
+
+    for num in nums[k:]:
+       if min_heap[0] < num:
+           heapq.heappushpop(min_heap, num)
+    return min_heap[0]
