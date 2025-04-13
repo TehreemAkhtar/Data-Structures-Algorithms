@@ -3,9 +3,10 @@
 # Solution: https://leetcode.com/problems/third-maximum-number/editorial/
 
 # Solution # 1
-# Time Complexity (TC): O(n): Traverses the list in linear time and count frequency
-# Space Complexity (SC): O(1): uses a hashmap to count frequency of each element
-# Approach: In each iteration, update frequency in a hashmap and return as soon as the majority element is found
+# Time Complexity (TC): O(n): Use set to remove duplicates and max values one by one
+# Space Complexity (SC): O(1): No extra space used
+# Approach: Create a set to remove duplicates -> remove first 3 max values -> if only 1 exists then
+# it'll be caught by exception
 def third_max_1(nums):
     """
     :type nums: List[int]
