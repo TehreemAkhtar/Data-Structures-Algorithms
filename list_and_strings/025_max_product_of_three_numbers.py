@@ -4,9 +4,10 @@
 
 
 # Solution # 1
-# Time Complexity (TC):
+# Time Complexity (TC): n Log n: Because we are sorting
 # Space Complexity (SC): O(1): No extra memory
-# Approach:
+# Approach: The max product can either be the product of first 3 max +ve or -ve numbers. BUT
+# if the array contains both +ve and -ve then it can be product of last 2 (smallest) -ve numbers and max +ve num
 def maximum_product_1(nums):
     """
     :type nums: List[int]
