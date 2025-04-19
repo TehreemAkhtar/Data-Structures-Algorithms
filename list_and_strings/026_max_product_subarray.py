@@ -6,7 +6,9 @@
 # Solution # 1
 # Time Complexity (TC): O(n):
 # Space Complexity (SC): O(1): No extra memory
-# Approach: Not actually Kadane algo but a modification of Kadane
+# Approach: Not actually Kadane algo but a modification of Kadane. Keep track of min and max product
+# in each iteration because we have -ve values and so two -ve's can form a +v2. Keep updating res with the
+# max value and return it in the end.
 def max_product(nums):
     """
     :type nums: List[int]
