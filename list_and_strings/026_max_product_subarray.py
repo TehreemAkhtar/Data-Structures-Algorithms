@@ -27,6 +27,8 @@ def max_product(nums):
     curr_min = curr_max = 1
 
     for n in nums:
+        # keeping n in the max and min func helps us to sail across the edge-case of 0 and
+        # keeping the max product of contiguous subarray.
         curr_max, curr_min = max(n * curr_max, n * curr_min, n), min(n * curr_max, n * curr_min, n)
         res = max(curr_max, curr_min, res)
     return res
