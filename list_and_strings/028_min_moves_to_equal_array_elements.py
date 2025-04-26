@@ -31,6 +31,7 @@ def min_moves_1(nums):
             count += n - min_
     return count
 
+
 # Solution # 2
 # Time Complexity (TC): O(n):
 # Space Complexity (SC): O(1): No extra memory
