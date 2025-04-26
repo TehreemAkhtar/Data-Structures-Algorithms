@@ -59,3 +59,12 @@ def min_moves_2(nums):
     :rtype: int
     """
     return sum(nums) - len(nums) * min(nums)
+
+
+# 🎯 Big Picture Summary
+#
+#
+# Concept	What It Means
+# sum(nums)	How "high" the array is overall
+# min(nums) × n	How "flat" it would be if all were minimum
+# sum(nums) - min(nums) × n	Total "gap" to remove ➔ number of moves
