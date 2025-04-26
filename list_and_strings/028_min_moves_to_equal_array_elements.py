@@ -30,3 +30,31 @@ def min_moves_1(nums):
         if n != min_:
             count += n - min_
     return count
+
+# Solution # 2
+# Time Complexity (TC): O(n):
+# Space Complexity (SC): O(1): No extra memory
+# Explanation: Every number becomes some common final value.
+# And that value is related to the minimum value because it's the "closest starting point" for all elements.
+# If you want all numbers equal to min(nums),
+# For each number, the number of moves needed is (num - min(nums)).
+# (Because bigger numbers have to "catch up" with the minimum.)
+# For example, if nums = [1, 2, 3] and min(nums) = 1:
+#
+# 1 needs 0 moves
+# 2 needs 1 move
+# 3 needs 2 moves
+# Total moves = (2-1) + (3-1) = 1 + 2 = 3 moves.
+#
+# (Notice: we don't care about the element already at the minimum.)
+# Sum of all needed moves =
+#
+# (1-min_element) + (2-min_element) + (3-min_element)
+# = (1+2+3) - 3 × min
+# = sum(nums) - len(nums) × min(nums)
+def min_moves_2(nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    return sum(nums) - len(nums) * min(nums)
