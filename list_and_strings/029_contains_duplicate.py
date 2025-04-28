@@ -1,5 +1,6 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/contains-duplicate
+# Solution: https://neetcode.io/solutions/contains-duplicate
 
 
 # Solution # 1
@@ -27,7 +28,24 @@ def contains_duplicate_2(nums):
     """
     nums.sort()
     return any(nums[i] == nums[i + 1] for i in range(len(nums) - 1))
+
+
 # First, nums[i] == nums[i + 1] for i in range(len(nums) - 1)
 # ➔ This creates a generator that yields True if any two adjacent elements are equal.
 # Then, any(...)
 # ➔ any() will return True if at least one True appears in the generator.
+
+# Solution # 3
+# # Time Complexity (TC): O(n)
+# # Space Complexity (SC): O(n): hashmap/set is using additional memory
+def contains_duplicate_3(nums):
+    """
+    :type nums: List[int]
+    :rtype: bool
+    """
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
