@@ -1,6 +1,7 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/two-sum
 # Solution: https://www.youtube.com/watch?v=KLlXCFG5TnA (Neetcode)
+# https://neetcode.io/solutions/two-sum
 
 
 # Solution # 1
@@ -11,13 +12,13 @@
 # check if the difference (target - current element) already exists in hashmap. If yes, return the index,
 # else keep iterating.
 def two_sum_1(nums, target):
-    unique_elements = dict()
+    unique_elements = {}
     for i in range(len(nums)):
         element = target - nums[i]
         # dict.keys() return a dynamic view object, not a list. Checking 'element in unique_elements.keys()'
         # does not iterate through all keys - it directly checks the hashtable.
         # Membership checks are optimized via hashing.
-        if element in unique_elements.keys():
+        if element in unique_elements:
             return [i, unique_elements[element]]
         unique_elements[nums[i]] = i
 
