@@ -7,9 +7,9 @@
 # Time Complexity (TC): O(n): as set traverses the whole array
 # Space Complexity (SC): O(n): set is using additional memory
 # Approach: As set contains unique elements, so we can compare len of both
-# Drawbacks of this solution: this is not the best solution, suppose the duplicate numbers are in the init of
+# Drawbacks of this solution: this is not the best solution, suppose the duplicate numbers are in the start of
 # the array and the array have an extreme large length, so you will have to create a extreme large set using
-# more memory and time
+# more memory and time just to find out the duplicates are in the start
 def contains_duplicate_1(nums):
     """
     :type nums: List[int]
@@ -49,3 +49,12 @@ def contains_duplicate_3(nums):
             return True
         seen.add(num)
     return False
+
+# Its not possible to solve this problem in constant space and O(n) time complexity.
+# Not even with XOR operation because it can help with the following:
+# XOR by itself doesn't tell you if duplicates exist. It only works in very specific patterns, such as:
+# "Every number appears exactly twice, except one."
+# In such cases, XOR cancels out the duplicates, and you're left with the unique number.
+# [1, 2, 3] → xor = 0
+# [1, 1] → xor = 0
+# [2, 2, 3, 3] → xor = 0
