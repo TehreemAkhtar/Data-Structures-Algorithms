@@ -150,3 +150,12 @@ def is_anagram_5(s, t: str) -> bool:
         count[ord(ch_t) - ord('a')] -= 1
 
     return all(v == 0 for v in count)
+
+
+from collections import Counter
+
+
+def is_anagram_6(s, t: str) -> bool:
+    s = unicodedata.normalize('NFC', s)
+    t = unicodedata.normalize('NFC', t)
+    return Counter(s) == Counter(t)
