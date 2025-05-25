@@ -154,7 +154,8 @@ def is_anagram_5(s, t: str) -> bool:
 
 from collections import Counter
 
-
+# TC: O(n)
+# SC: O(n)
 def is_anagram_6(s, t: str) -> bool:
     s = unicodedata.normalize('NFC', s)
     t = unicodedata.normalize('NFC', t)
