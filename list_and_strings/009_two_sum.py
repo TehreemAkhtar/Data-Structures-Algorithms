@@ -42,7 +42,8 @@ def two_sum_1_refactored_version(nums, target):
 # Follow-up: What if we have to print all possible pairs if array contains duplicates?
 from collections import defaultdict
 
-
+# Approach: Maintain a hashmap with key=num:value=[all indices]
+# result = keep adding all pairs of indices to result
 def all_two_sum_pairs(nums, target):
     seen = defaultdict(list)  # number -> list of positions
     result = []
