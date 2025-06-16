@@ -33,3 +33,25 @@ def two_sum_1_refactored_version(nums, target):
         if diff in prev_map:
             return [i, prev_map[diff]]
         prev_map[n] = i
+
+# Follow-up: what if we have duplicate elements in array?
+# 1. Either use set to remove duplicates
+# 2. Use current solution but break the loop on first correct answer
+
+
+# Follow-up: What if we have to print all possible pairs if array contains duplicates?
+from collections import defaultdict
+
+
+def all_two_sum_pairs(nums, target):
+    seen = defaultdict(list)  # number -> list of positions
+    result = []
+    for i, num in enumerate(nums):
+        complement = target - num
+        for j in seen[complement]:
+            result.append([j, i])
+        seen[num].append(i)
+    return result
+
+# nums = [1,1,1,1], target = 2
+# output = [[0,1], [0,2], [1,2], [0,3], [1,3], [2,3]]
