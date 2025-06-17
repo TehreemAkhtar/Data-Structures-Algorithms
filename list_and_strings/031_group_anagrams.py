@@ -3,6 +3,7 @@
 # Solution: https://www.youtube.com/watch?v=vzdNOK2oB2E
 from collections import defaultdict
 
+
 # Time Complexity (TC): O(n klogk): k = length of string: n = length of list containing strings (mean n times)
 # Space Complexity (SC): O(k.n):
 # Approach: as sorted strings can be compared easily for anagrams so sort each string and store it as
