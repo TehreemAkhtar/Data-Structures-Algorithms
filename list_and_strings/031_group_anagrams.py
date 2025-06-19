@@ -54,3 +54,21 @@ def group_anagrams_2(strs):
         res[tuple(count)].append(s)
     print(res)
     return list(res.values())
+
+# Some notes:
+# Space Complexity:
+# The algorithm will take more space on the solution of frequency map than the sorting solution if
+# the strings do not have much characters.
+# If your strings are short — say, < 26 letters — the tuple key uses more raw memory (28 bytes per int = 26 * 26 bytes)
+# in Python than storing the sorted string.
+#  If your strings are long — say, 1000 letters — then the sorted string key is much bigger than the
+#  constant-size tuple.
+
+# IMP => So, in other words, if you see that the string length is specified as having the possibility of being very
+# large then the frequency map is the way to go, otherwise the sorting algorithm is the best solution.
+
+# Time Complexity:
+#  for tiny K, sorting can be a tiny bit faster in practice because the overhead for creating the tuple key
+#  and hashing it can be more expensive than sorting just 1 or 2 letters
+# Very small K (1–3): sorting is fine and simple
+# Large K (long strings): frequency map is clearly better
