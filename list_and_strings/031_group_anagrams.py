@@ -58,7 +58,7 @@ def group_anagrams_2(strs):
 # Some notes:
 # Space Complexity:
 # The algorithm will take more space on the solution of frequency map than the sorting solution if
-# the strings do not have much characters.
+# the strings do not have many characters.
 # If your strings are short — say, < 26 letters — the tuple key uses more raw memory (28 bytes per int = 26 * 26 bytes)
 # in Python than storing the sorted string.
 #  If your strings are long — say, 1000 letters — then the sorted string key is much bigger than the
