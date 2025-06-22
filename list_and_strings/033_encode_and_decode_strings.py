@@ -134,3 +134,25 @@ def decode_3(data):
 # 	•	Stores the length as exactly N bytes in binary.
 # 	•	No character encoding step — no ambiguity.
 # 	•	Robust, used in real binary protocols.
+
+
+# Example:
+# In computer networking, when you send data over the internet (or any network), you usually wrap the actual data with extra information called headers.
+#
+# Why?
+# Because the receiver needs to know:
+# 	•	How big is this chunk of data?
+# 	•	What type of data is it?
+# 	•	Where does it belong in a bigger message?
+#
+# So, the header acts like a label or instruction sheet for the data.
+#
+# When you encode multiple strings into a single string or byte blob:
+# 	•	You do something similar:
+# 	•	For each piece of text:
+#
+# •	The length is like a header — so when decoding, you know:
+# “I’ll read 4 bytes to get the length → then read exactly that many bytes for the text.”
+#
+# So, you’re doing the same idea on a small scale:
+# Add a “header” to each piece of text so the decoder can read it back correctly.
