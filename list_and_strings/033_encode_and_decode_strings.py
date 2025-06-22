@@ -53,3 +53,28 @@ def decode(s: str):
         res.append(s[i:i + s_len])
         i += s_len
     return res
+
+
+# Approach: encode each string’s length as a single character, instead of writing the length as digits plus #
+# There’s no # or digits — just a special hidden character whose code is the length. If your strings can be huge
+# (like 10,000 characters), this trick needs multiple bytes to store the length — so the simple version fails.
+#
+def encode_2(strs):
+    res = []
+    for s in strs:
+        # [char] is the single character whose Unicode code equals the length.
+        # With chr() you can only store lengths up to 255 for 1-byte characters (\xFF). For larger strings, you
+        # must switch to multi-byte encoding or more complex tricks (like storing length in 2 chars).
+        res.append(chr(len(s)) + s)
+    return ''.join(res)
+
+
+def decode_2(s: str):
+    res = []
+    i = 0
+    while i < len(s):
+        length = ord(s[i])  # read the first char, get its code point = length
+        i += 1
+        res.append(s[i:i + length])
+        i += length
+    return res
