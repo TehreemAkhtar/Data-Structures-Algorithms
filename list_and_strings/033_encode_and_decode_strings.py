@@ -55,10 +55,10 @@ def decode(s: str):
     return res
 
 
+# Solution # 2
 # Approach: encode each string’s length as a single character, instead of writing the length as digits plus #
 # There’s no # or digits — just a special hidden character whose code is the length. If your strings can be huge
 # (like 10,000 characters), this trick needs multiple bytes to store the length — so the simple version fails.
-#
 def encode_2(strs):
     res = []
     for s in strs:
@@ -78,3 +78,47 @@ def decode_2(s: str):
         res.append(s[i:i + length])
         i += length
     return res
+
+
+# Solution # 3
+# Approach: Use a fixed-size binary representation of the length instead of a text number plus a separator.
+def encode_3(strs):
+    encoded = b''  # a bytes object
+    for s in strs:
+        length = len(s)
+        # use 4 bytes for the length, big-endian
+        # with 4 bytes, you can safely encode strings up to ~4 billion characters long.
+        # That’s usually more than enough for any real-world text.
+        #  big-endian: how bytes are ordered when storing a number -> store the most significant byte first:
+        encoded += length.to_bytes(4, 'big')
+        encoded += s.encode('utf-8')
+    return encoded
+
+
+# In network protocols and binary formats, big-endian is common because it’s more intuitive: higher-order bits come first.
+
+def decode_3(data):
+    res = []
+    i = 0
+    while i < len(data):
+        # read 4 bytes → convert back to int
+        length = int.from_bytes(data[i:i + 4], 'big')
+        i += 4
+        # read the next `length` bytes → decode back to str
+        s = data[i:i + length].decode('utf-8')
+        res.append(s)
+        i += length
+    return res
+
+# byte-array method is safer, especially when you care about binary storage and large lengths.
+# For robust binary encoding → raw bytes is cleaner and predictable.
+
+# Unicode character
+# Uses a single Unicode character with code point equal to the length
+# Good for lengths 0–255 (if using chr(x) for x ≤ 255); works like “one-character prefix”.
+
+# VS
+
+# Raw bytes
+# Uses 1, 2, 4 bytes to store the binary integer value
+# More robust: works for large lengths, not restricted to Unicode code points.
