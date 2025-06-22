@@ -122,3 +122,15 @@ def decode_3(data):
 # Raw bytes
 # Uses 1, 2, 4 bytes to store the binary integer value
 # More robust: works for large lengths, not restricted to Unicode code points.
+
+# 📍 Key difference
+# 	•	Using chr(length):
+# 	•	Stores the length as a single Unicode code point.
+# 	•	In UTF-8, this means that character might expand to multiple bytes!
+# For example, chr(200) → 'È' → which in UTF-8 takes 2 bytes.
+# So it’s conceptually one character in Python, but in binary it’s still variable bytes in UTF-8.
+# This can be tricky.
+# 	•	Using length.to_bytes(...):
+# 	•	Stores the length as exactly N bytes in binary.
+# 	•	No character encoding step — no ambiguity.
+# 	•	Robust, used in real binary protocols.
