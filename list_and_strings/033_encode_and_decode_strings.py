@@ -137,7 +137,8 @@ def decode_3(data):
 
 
 # Example:
-# In computer networking, when you send data over the internet (or any network), you usually wrap the actual data with extra information called headers.
+# In computer networking, when you send data over the internet (or any network), you
+# usually wrap the actual data with extra information called headers.
 #
 # Why?
 # Because the receiver needs to know:
@@ -149,9 +150,7 @@ def decode_3(data):
 #
 # When you encode multiple strings into a single string or byte blob:
 # 	•	You do something similar:
-# 	•	For each piece of text:
-#
-# •	The length is like a header — so when decoding, you know:
+# 	•	For each piece of text: The length is like a header — so when decoding, you know:
 # “I’ll read 4 bytes to get the length → then read exactly that many bytes for the text.”
 #
 # So, you’re doing the same idea on a small scale:
