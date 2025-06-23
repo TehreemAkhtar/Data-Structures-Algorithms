@@ -36,10 +36,13 @@ def is_palindrome_2_optimised(s):
     l, r = 0, len(s) - 1
 
     while l < r:
-        while l < r and not alpha_num(s[l]):
+        if not alpha_num(s[l]):
             l += 1
-        while r > l and not alpha_num(s[r]):
+            continue
+        if not alpha_num(s[r]):
             r -= 1
+            continue
+
         if s[l].lower() != s[r].lower():
             return False
         l, r = l + 1, r - 1
