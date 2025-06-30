@@ -31,6 +31,8 @@ def binary_search(l, r, nums, target):
     return -1
 
 
+# Solution # 2
+
 # Time Complexity (TC): O(n): traversing the entire list using 2 ptrs and check the sum of nums in each iteration
 # Space Complexity (SC): O(1): we're not storing anything anywhere
 # Approach: Use two pointers l and r, in each iteration check the following
