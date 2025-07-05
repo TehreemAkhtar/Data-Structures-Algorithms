@@ -15,7 +15,7 @@ def is_palindrome_1(s):
 # Solution # 2
 # Time Complexity (TC): O(n): a full iteration
 # Space Complexity (SC): O(n): using a new str list
-# Approach: create a new list -> use two ptrs l and r and compare start and end of string
+# Approach: create a new sanitized list -> use two ptrs l and r and compare start and end of string
 def is_palindrome_2(s):
     sanitized_s = [c.lower() for c in s if c.isalnum()]
     l, r = 0, len(sanitized_s) - 1
@@ -28,11 +28,11 @@ def is_palindrome_2(s):
     return True
 
 
-# Solution # 2
+# Solution # 3
 # Time Complexity (TC): O(n): a full iteration
 # Space Complexity (SC): O(1): no extra memory
-# Approach: create a new list -> use two ptrs l and r and compare start and end of string
-def is_palindrome_2_optimised(s):
+# Approach: use two ptrs l and r and compare start and end of string by skipping non-alphanum chars
+def is_palindrome_3(s):
     l, r = 0, len(s) - 1
 
     while l < r:
