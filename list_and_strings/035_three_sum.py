@@ -32,3 +32,42 @@ def three_sum_1(nums):
             seen.add(y)
 
     return list(result)
+
+
+# Solution # 1
+# Time Complexity (TC): O(n2): Nested loop
+# Space Complexity (SC): O(m): Where m is the number of triplets and n is the length of the given array.
+# Approach: Use outer loop to set the first number and inner loop to reduce the problem to two pointer
+# approach (imp to sort the array first) -> Use ptrs l and r to find all elements -> ignore duplicate numbers during
+# the process as result set shouldn't contain duplicates.
+def three_sum_2(nums):
+    nums.sort()
+    res = []
+
+    for i in range(len(nums)):
+        # Another optimisation
+        if nums[i] > 0:
+            break
+
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+
+        l, r = i + 1, len(nums) - 1
+
+        while l < r:
+            total = nums[i] + nums[l] + nums[r]
+            if total == 0:
+                res.append([nums[i], nums[l], nums[r]])
+                l += 1
+                r -= 1
+                # skip duplicates
+                while l < r and nums[l] == nums[l - 1]:
+                    l += 1
+                while l < r and nums[r] == nums[r + 1]:
+                    r -= 1
+            elif total < 0:
+                l += 1
+            else:
+                r -= 1
+
+    return res
