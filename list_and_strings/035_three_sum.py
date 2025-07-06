@@ -34,7 +34,7 @@ def three_sum_1(nums):
             seen.add(y)
 
     return list(result)
-
+# This can be updated to skip consecutive duplicate elements
 
 # Solution # 2
 # Time Complexity (TC): O(n2): Nested loop
@@ -65,6 +65,9 @@ def three_sum_2(nums):
                 # skip duplicates
                 while l < r and nums[l] == nums[l - 1]:
                     l += 1
+                # its ok if you dont decrement r, since we are anyways incrementing l(if found duplicates), so if we
+                # find r and r+1 as same value, l will always be different, thus the whole pair altogether
+                # will be different.
                 while l < r and nums[r] == nums[r + 1]:
                     r -= 1
             elif total < 0:
