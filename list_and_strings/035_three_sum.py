@@ -1,6 +1,8 @@
 # SOURCE: Leetcode
 # https://leetcode.com/problems/3sum/
 # Solution: https://neetcode.io/solutions/3sum
+from collections import defaultdict
+
 
 # Solution # 1
 # Time Complexity (TC): O(n2): Nested loop
@@ -34,7 +36,7 @@ def three_sum_1(nums):
     return list(result)
 
 
-# Solution # 1
+# Solution # 2
 # Time Complexity (TC): O(n2): Nested loop
 # Space Complexity (SC): O(m): Where m is the number of triplets and n is the length of the given array.
 # Approach: Use outer loop to set the first number and inner loop to reduce the problem to two pointer
@@ -70,4 +72,39 @@ def three_sum_2(nums):
             else:
                 r -= 1
 
+    return res
+
+
+# Solution # 3
+# Time Complexity (TC): O(n2): Nested loop
+# Space Complexity (SC): O(n): count dict size
+# Approach:
+#   1.  Sort the array
+# 	2.	Track frequency of each number using count
+# 	3.	Fix the first number nums[i] in the triplet
+# 	4.	Iterate through all possible second numbers nums[j] after i
+# 	5.	Use the formula target = -(nums[i] + nums[j])
+# 	6.	If target is in the count and hasn’t already been used in this combination → it’s a valid triplet
+def three_sum_3(nums):
+    nums.sort()
+    count = defaultdict(int)
+    for num in nums:
+        count[num] += 1
+
+    res = []
+    for i in range(len(nums)):
+        count[nums[i]] -= 1
+        if i and nums[i] == nums[i - 1]:
+            continue
+
+        for j in range(i + 1, len(nums)):
+            count[nums[j]] -= 1
+            if j - 1 > i and nums[j] == nums[j - 1]:
+                continue
+            target = -(nums[i] + nums[j])
+            if count[target] > 0:
+                res.append([nums[i], nums[j], target])
+
+        for j in range(i + 1, len(nums)):
+            count[nums[j]] += 1
     return res
