@@ -22,3 +22,7 @@ def max_area_1(height):
         else:
             r -= 1
     return max_area
+
+# Optimisation: One extra step we can take is instead of moving a pointer just one step,
+# we can keep moving it until it finds a height greater than the one it left (or reaches the end condition,
+# in which case there is no greater volume).
