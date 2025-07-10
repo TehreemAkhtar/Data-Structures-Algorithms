@@ -69,3 +69,39 @@ def is_valid_sudoku_2(board):
             col[c].append(board[r][c])
             square[(r // 3, c // 3)].append(board[r][c])
     return True
+
+
+# Solution # 3
+# Time Complexity (TC): O(n2): Iterate through every element in matrix
+# Space Complexity (SC): O(n)
+# Approach:
+#   1.	For each cell:
+# 	•	If it’s ".", skip
+# 	•	Convert digit d to val = int(d) - 1
+# 	2.	Check: Has 1 << val already been “seen” in row/col/box? using (1 << val) & cols[c] -> if already seen,
+# 	the result will be non-zero else zero
+# 	3.	If yes → Invalid board → return False
+# 	4.	If no → mark it as seen by turning ON the bit
+def is_valid_sudoku_3(board):
+    rows = [0] * 9
+    cols = [0] * 9
+    squares = [0] * 9
+
+    for r in range(9):
+        for c in range(9):
+            if board[r][c] == ".":
+                continue
+
+            val = int(board[r][c]) - 1
+            if (1 << val) & rows[r]:
+                return False
+            if (1 << val) & cols[c]:
+                return False
+            if (1 << val) & squares[(r // 3) * 3 + (c // 3)]:
+                return False
+
+            rows[r] |= (1 << val)
+            cols[c] |= (1 << val)
+            squares[(r // 3) * 3 + (c // 3)] |= (1 << val)
+
+    return True
