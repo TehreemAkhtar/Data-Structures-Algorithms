@@ -69,3 +69,28 @@ def trap_3(height):
     for i in range(n):
         res += min(left_max[i], right_max[i]) - height[i]
     return res
+
+
+# Two Pointers
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(1)
+# Approach: Use two ptrs left and right -> move the smaller ptr because
+# lower value determines the maximum amount of water stored -> keep track of both max values -> keep calculating units at
+# each index
+def trap_4(height):
+    if not height:
+        return 0
+
+    l, r = 0, len(height) - 1
+    left_max, right_max = height[l], height[r]
+    res = 0
+    while l < r:
+        if left_max < right_max:
+            l += 1
+            left_max = max(left_max, height[l])
+            res += left_max - height[l]
+        else:
+            r -= 1
+            right_max = max(right_max, height[r])
+            res += right_max - height[r]
+    return r
