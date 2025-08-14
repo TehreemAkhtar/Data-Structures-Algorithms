@@ -75,8 +75,8 @@ def trap_3(height):
 # Time Complexity (TC): O(n)
 # Space Complexity (SC): O(1)
 # Approach: Use two ptrs left and right -> move the smaller ptr because
-# lower value determines the maximum amount of water stored -> keep track of both max values -> keep calculating units at
-# each index
+# lower value determines the maximum amount of water stored -> keep track of both max values ->
+# keep calculating units at each index
 def trap_4(height):
     if not height:
         return 0
@@ -94,3 +94,39 @@ def trap_4(height):
             right_max = max(right_max, height[r])
             res += right_max - height[r]
     return r
+
+
+# Monotonic stack solution
+# Time Complexity (TC): O(n)
+# Space Complexity (SC): O(n)
+# Approach: The stack here stores indices of bars in non-increasing height order.
+# When we find a bar (height[i]) taller than the bar on top of the stack,
+# it means we’ve found a right boundary for some trapped water.
+# 	•	mid is the bar we just popped — it’s the bottom of the water container.
+# 	•	The left boundary is now at stack[-1] (the new top of stack after popping mid).
+# 	•	The right boundary is at i (current index).
+def trap_5(height):
+    if not height:
+        return 0
+
+    stack = []
+    res = 0
+
+    for i in range(len(height)):
+        while stack and height[i] >= height[stack[-1]]:
+            mid = height[stack.pop()]
+            if stack:
+                right = height[i]
+                left = height[stack[-1]]
+                h = min(right, left) - mid
+                w = i - stack[-1] - 1
+                # If you imagine the cross-section:
+                # left boundary ... mid ... right boundary
+                # The water in between these boundaries covers multiple columns (not just mid).
+                # h * w
+                # If you skipped width and only calculated “water at index i”, you’d miss all the water that’s over
+                # multiple positions between boundaries.
+                res += h * w
+        stack.append(i)
+
+    return res
