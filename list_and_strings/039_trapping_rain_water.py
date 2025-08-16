@@ -130,3 +130,12 @@ def trap_5(height):
         stack.append(i)
 
     return res
+
+# Todo - solve in future -> find in leetcode comments
+# Got this follow up in the actual interview:
+#
+# Suppose a '0' in the input means that there is a leak at that position and the water can leak out. After the adjustment, that is, after the water levels have stabilized due to leaking, what is the answer?
+#
+# How do we change our approach/what would be out ideal answer for this scenario?
+#
+# Thanks in advance!
