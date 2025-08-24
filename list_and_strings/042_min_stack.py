@@ -3,10 +3,12 @@
 # Solution: https://neetcode.io/solutions/min-stack
 
 
-#
-# Time Complexity (TC):
-# Space Complexity (SC):
-# Approach:
+# Augmented DS technique:
+# An augmented data structure is a basic data structure (like a tree, stack, queue, or heap) that has been
+# enhanced with extra information to support additional operations more efficiently.
+# Time Complexity (TC): O(1) for all operations.
+# Space Complexity (SC): O(n)
+# Approach: Use a single stack but every index will contain a dict of value and min_value
 class MinStack1(object):
 
     def __init__(self):
@@ -49,6 +51,11 @@ class MinStack1(object):
         return item['min']
 
 
+# Auxiliary Stack
+# Time Complexity (TC): O(1) for all operations.
+# Space Complexity (SC): O(n)
+# Approach: Use another stack to keep track of min values -> Pop from both in pop operation ->
+# At every level of stack, it'll keep track of min value
 class MinStack2(object):
 
     def __init__(self):
@@ -60,12 +67,9 @@ class MinStack2(object):
         :type val: int
         :rtype: None
         """
-        if not self.stack:
-            self.min_stack.append(val)
-        else:
-            min_top = self.min_stack[-1]
-            self.min_stack.append(min(val, min_top))
         self.stack.append(val)
+        val = min(val, self.min_stack[-1] if self.min_stack else val)
+        self.min_stack.append(val)
 
     def pop(self):
         """
@@ -85,3 +89,27 @@ class MinStack2(object):
         :rtype: int
         """
         return self.min_stack[-1]
+
+
+# Augmented DS technique:
+# An augmented data structure is a basic data structure (like a tree, stack, queue, or heap) that has been
+# enhanced with extra information to support additional operations more efficiently.
+# Time Complexity (TC): O(1) for all operations.
+# Space Complexity (SC): O(n)
+# Approach: Use a single stack but every index will contain tuple of val, min_value
+class MinStack3:
+
+    def __init__(self):
+        self.stack = []
+
+    def push(self, val: int) -> None:
+        self.stack.append((val, min(val, self.stack[-1][1] if self.stack else val)))
+
+    def pop(self) -> None:
+        self.stack.pop()
+
+    def top(self) -> int:
+        return self.stack[-1][0]
+
+    def getMin(self) -> int:
+        return self.stack[-1][1]
