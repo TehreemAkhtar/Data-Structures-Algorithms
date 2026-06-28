@@ -28,8 +28,8 @@
 
 # Solution # 1
 # Time Complexity (TC): O(n log n): Python uses Tim sort which takes n log n time
-# Space Complexity (SC): O(n): Strings in Python are immutable. Therefore, when you sorted(s)
-# Approach: Converts s into a list of characters -> Sorts that list -> Returns a new sorted list
+# Space Complexity (SC): O(n): Strings in Python are immutable. sorted(s) returns a new string
+# Approach: sorted(s) converts s into a list of characters -> Sorts that list -> Returns a new sorted list
 # Even though it feels like you're not explicitly creating anything, under the hood,
 # a copy of all elements is created. As a string can't be sorted in-place.
 def is_anagram_1(s: str, t: str) -> bool:
