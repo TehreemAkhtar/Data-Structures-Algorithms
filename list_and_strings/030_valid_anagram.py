@@ -60,7 +60,7 @@ def is_anagram_1_unicode(s, t):
 
 
 # Solution # 2
-# Time Complexity (TC): O(n): sort + traversing the array
+# Time Complexity (TC): O(n): create two hashmaps then compare them
 # Space Complexity (SC): Assuming only alphabets are considered = O(1): since we have at most 26 different characters.
 # BUT if unicode chars are included; which are 150k+ then SC will be O(n)
 # Approach: Count frequency of each char in two dicts and compare them
