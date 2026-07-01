@@ -25,7 +25,7 @@ def is_valid_1(s):
 
 # Stack solution
 # Time Complexity (TC): O(n): a single iteration
-# Space Complexity (SC): O(n): string s to store updated string
+# Space Complexity (SC): O(n): stack s to store updated string
 # Approach: Iterate through string -> for any opening bracket -> push to stack ->
 # closing bracket -> match it with stack top
 def is_valid_2(s):

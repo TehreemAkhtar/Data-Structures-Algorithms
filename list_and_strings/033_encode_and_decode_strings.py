@@ -5,7 +5,7 @@
 
 # Solution # 1
 # Approach: Encode each string with this format: len-of-each-string + '#' + <actual-string>
-# Reason we're also using '#' as a delim:
+# Reason for using '#' as a delim: actual str can contain numbers, # will distinguish input nums from encoded ones 
 # Encode:
 # Time Complexity (TC): O(n.k^2): Due to creating a copy of new str in loop as str is immutable. Cost grows
 # with number of strings (N), and quadratically with average string length (K)
@@ -18,7 +18,7 @@ def encode_1(strs):
         # str(len(s)) = O(L); L is length of string. A digit has log₁₀(N). Converting a str->int takes O(logN) time
         # + s = O(L) -> copying s of length L
         # encoded_str += takes O(N) where N is the combined length of everything
-        # Python because strings are immutable — each += makes a new string copy!
+        # because strings are immutable — each '+=' makes a new string copy!
         encoded_str += str(len(s)) + '#' + s
     return encoded_str
 
@@ -50,7 +50,7 @@ def decode(s: str):
         # Slicing a substring of length K → O(K)
         # Again: each character is sliced exactly once.
         # So total slicing is also O(total length).
-        res.append(s[i:i + s_len])
+        res.append(s[i: i + s_len])
         i += s_len
     return res
 
@@ -68,7 +68,7 @@ def encode_2(strs):
         res.append(chr(len(s)) + s)
     return ''.join(res)
 
-
+# TBD: this solution won't work with lengths greater than one digit in encoded string
 def decode_2(s: str):
     res = []
     i = 0
