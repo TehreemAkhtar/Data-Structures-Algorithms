@@ -1,5 +1,5 @@
 # SOURCE: Leetcode
-# https://leetcode.com/problems/evaluate-reverse-polish-notation/submissions/1747561031/
+# https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
 # Solution: https://neetcode.io/solutions/evaluate-reverse-polish-notation
 
 
