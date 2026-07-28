@@ -6,9 +6,6 @@
 # Augmented DS technique:
 # An augmented data structure is a basic data structure (like a tree, stack, queue, or heap) that has been
 # enhanced with extra information to support additional operations more efficiently.
-# Time Complexity (TC): O(1) for all operations.
-# Space Complexity (SC): O(n)
-# Approach: Use a single stack but every index will contain a dict of value and min_value
 class MinStack1(object):
 
     def __init__(self):
