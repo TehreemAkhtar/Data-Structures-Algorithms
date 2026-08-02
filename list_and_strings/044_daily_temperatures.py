@@ -7,7 +7,7 @@
 # Space Complexity (SC): O(n): additional memory for result list
 # Approach: For each temperature, iterate through the remaining temperatures to its right to
 # find the next higher temperature and once found, compute the difference of those indices.
-def daily_temperatures_1(self, temperatures):
+def daily_temperatures_1(temperatures):
     res = [0] * len(temperatures)
 
     for i in range(len(temperatures)):
@@ -26,7 +26,7 @@ def daily_temperatures_1(self, temperatures):
 # it means we have found the next warmer day for the value stored at the top of stack.
 # Remove that value and calculate difference between the current and removed index. Continue popping
 # until the current temperature is no longer warmer than the temperature at the top of the stack.
-def daily_temperatures_2(self, temperatures):
+def daily_temperatures_2(temperatures):
     res = [0] * len(temperatures)
     stack = []  # pair: [temp, index]
 
